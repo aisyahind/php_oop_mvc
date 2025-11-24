@@ -19,6 +19,4 @@
             echo "Halo, saya adalah Mahasiswa " . $this->nama . ".<br>";
             echo "NIM saya adalah " . $this->nim . ". Selamat datang di dunia OOP!";
         }
-    } 
- // Catatan: Kelas Mahasiswa tidak akan dieksekusi di sini,
- // melainkan di file index.php.
+    }

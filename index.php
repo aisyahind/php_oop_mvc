@@ -12,7 +12,7 @@
     // 4. Membuat objek kedua (optional, untuk menunjukkan setiap objek unik)
     $mhs2 = new Mahasiswa();
     $mhs2->nama = "Sinta Dewi";
-    $mhs2->nim = "2310010340";
+    $mhs2->nim = "2310010234";
     ?>
  <!DOCTYPE html>
  <html lang="id">
