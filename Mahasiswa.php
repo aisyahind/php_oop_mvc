@@ -23,6 +23,30 @@
             echo "--> Objek **{$this->nama}** berhasil dibuat (Konstruktor berjalan).<br>";
         }
 
+        /*** 🔐 Setter (Mutator) untuk properti NIM.
+         * Tempat logik validasi data diletakkan.
+         */
+        public function setNim($nim)
+        {
+            // Validasi Sederhana: NIM harus memiliki panjang 7
+            if (strlen($nim) === 7) {
+                $this->nim = $nim;
+                return true;
+            } else {
+                echo "<span style='color: red;'>[ERROR ENKAPSULASI] NIM '{$nim}' tidak valid (Harus 7 
+digit). NIM tidak diubah.</span><br>";
+                return false;
+            }
+        }
+        /**
+         * 🔓 Getter (Accessor) untuk properti NIM.
+         * Mengambil nilai properti privat.
+         */
+        public function getNim()
+        {
+            return $this->nim;
+        }
+
         /**
          * Metode (Method) - Perilaku yang dapat dilakukan objek
          * Menampilkan salam sapaan.
@@ -38,6 +62,6 @@
          */
         public function __destruct()
         {
-            echo "--> Objek **{$this->nama}** telah dihancurkan (Destruktor berjalan).<br>";
+            echo "--> Objek **{$this->nama}** telah dihancurkan (Dest   ruktor berjalan).<br>";
         }
     }
