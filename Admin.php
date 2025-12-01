@@ -1,6 +1,7 @@
 1. <?php
     // Pastikan kelas induk User dimuat terlebih dahulu.
     require_once 'User.php';
+    require_once 'LoginInterface.php';
 
     /**
      * Kelas Anak (Child Class) Admin.
@@ -22,6 +23,31 @@
             $this->role = 'admin';
         }
 
+// ===========================================
+// IMPLEMENTASI DARI LoginInterface
+// ===========================================
+
+        /**
+         * Implementasi wajib dari LoginInterface.
+         */
+        public function login()
+        {
+            return "Admin **{$this->nama}** berhasil login ke sistem dengan hak akses penuh.";
+        }
+
+        /**
+         * Implementasi wajib dari LoginInterface.
+         */
+        public function logout()
+        {
+            return "Admin **{$this->nama}** berhasil logout dari sistem.";
+        }
+
+// ===========================================
+// METHOD OVERRIDING & KHUSUS ADMIN
+// ===========================================
+
+
         /**
          * Method Overriding: Menimpa metode salam() dari kelas User.
          */
@@ -40,4 +66,6 @@
         {
             return "Admin {$this->nama} sedang mengelola data sistem.";
         }
+
+        // Destruktor dari User tetap diwariskan dan dijalankan otomatis.
     }

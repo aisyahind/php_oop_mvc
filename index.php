@@ -3,12 +3,13 @@
 // Masukkan (include) file kelas
 require_once 'Mahasiswa.php';
 require_once 'User.php';
+require_once 'LoginInterface.php'; // Penting: Muat Interface
 require_once 'Admin.php';
 
 // 1. Instansiasi Objek User Biasa
 $user1 = new User("Rani Permata");
 
-// 2. Instansiasi Objek Admin (Kelas Anak)
+// 2. Instansiasi Objek Admin (Kelas Anak yang juga mengimplementasikan Interface)
 $admin1 = new Admin("Gagah Perkasa");
 
 /*
@@ -194,6 +195,41 @@ $mhs1->setNim("999");       // invalid
             <em>
                 (Perhatikan bahwa objek Admin memiliki metode <strong>salam()</strong> yang dioverride,
                 dan tetap dapat menggunakan metode dasar <strong>getRole()</strong> dari kelas User.)
+            </em>
+        </p>
+
+    </div>
+
+    <!-- ======================= -->
+    <!--  MODUL 5               -->
+    <!-- ======================= -->
+    <div class="container">
+
+        <h1>Modul 5: Abstraction & Interface (Kontrak Perilaku)</h1>
+
+        <h2>Administrator (Kelas Admin)</h2>
+        <div class="output">
+
+            <!-- Panggilan metode yang diwarisi dan di-override -->
+            <p><?php echo $admin1->salam(); ?></p>
+
+            <!-- Panggilan metode dari Interface -->
+            <p class="action">Action 1: <?php echo $admin1->login(); ?></p>
+            <p class="action">Action 2: <?php echo $admin1->kelolaSistem(); ?></p>
+            <p class="action">Action 3: <?php echo $admin1->logout(); ?></p>
+        </div>
+
+        <h2>Pengguna Biasa (Kelas User)</h2>
+        <div class="output">
+            <p><?php echo $user1->salam(); ?></p>
+            <!-- PERHATIKAN: User TIDAK memiliki metode login() atau logout() -->
+            <p style="color: red;">*Objek User tidak dapat memanggil login() karena tidak mengimplementasikan LoginInterface.
+            </p>
+        </div>
+
+        <p>
+            <em>
+                (Kelas Admin kini memiliki semua metode dari User PLUS semua metode yang diwajibkan oleh LoginInterface.)
             </em>
         </p>
 
