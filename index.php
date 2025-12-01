@@ -1,87 +1,98 @@
- <?php
-    // 1. Masukkan (include) file class Mahasiswa.
-    require_once 'Mahasiswa.php';
+<?php
+require_once 'Mahasiswa.php';
 
-    // 2. Instansiasi Objek (Menciptakan objek nyata dari blueprint Mahasiswa)
-    $mhs1 = new Mahasiswa();
+/*
+| MODUL 1 (Instansiasi tanpa constructor)
+*/
 
-    // 3. Mengisi Properti Objek (Mengakses data di dalam objek)
-    $mhs1->nama = "Aisyah Indriani";
-    $mhs1->nim = "2310010223";
+$m1_obj1 = new Mahasiswa("Aisyah Indriani", "2310010223");
+$m1_obj2 = new Mahasiswa("Sinta Dewi", "2310010234");
 
-    // 4. Membuat objek kedua (optional, untuk menunjukkan setiap objek unik)
-    $mhs2 = new Mahasiswa();
-    $mhs2->nama = "Sinta Dewi";
-    $mhs2->nim = "2310010234";
-    ?>
- <!DOCTYPE html>
- <html lang="id">
+/*
+| MODUL 2 (Instansiasi dengan constructor)
+*/
 
- <head>
-     <meta charset="UTF-8">
-     <title>Modul 1: Dasar OOP</title>
-     <style>
-         body {
-             font-family: 'Inter', sans-serif;
-             background-color: #f4f7f9;
-             margin: 0;
-             padding: 20px;
-         }
+$m2_obj1 = new Mahasiswa("Budi Santoso", "2023001");
+$m2_obj2 = new Mahasiswa("Citra Kirana", "2023002");
 
-         .container {
-             max-width: 600px;
-             margin: 20px auto;
-             background-color: white;
-             padding: 30px;
-             border-radius: 12px;
-             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-         }
+?>
+<!DOCTYPE html>
+<html lang="id">
 
-         h1 {
-             color: #2c3e50;
-             border-bottom: 2px solid #3498db;
-             padding-bottom: 10px;
-         }
+<head>
+    <meta charset="UTF-8">
+    <title>Modul 1 & Modul 2</title>
 
-         h2 {
-             color: #34495e;
-             margin-top: 30px;
-         }
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 20px;
+        }
 
-         .output {
-             background-color: #ecf0f1;
-             border-left: 5px solid #3498db;
-             padding: 15px;
-             margin-bottom: 20px;
-             border-radius: 6px;
-         }
-     </style>
- </head>
+        .container {
+            max-width: 650px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
 
- <body>
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
 
-     <div class="container">
-         <h1>Modul 1: Konsep Dasar OOP (Class & Object)</h1>
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
 
-         <h2>Objek Pertama: <?php echo $mhs1->nama; ?></h2>
-         <div class="output">
-             <!-- 5. Memanggil Metode Objek -->
-             <?php $mhs1->sayHello(); ?>
-         </div>
+        .output {
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
 
-         <h2>Objek Kedua: <?php echo $mhs2->nama; ?></h2>
-         <div class="output">
-             <!-- Memanggil Metode Objek Kedua -->
-             <?php $mhs2->sayHello(); ?>
-         </div>
+<body>
 
-         <p class="mt-4">
-             <em>(Lihat kode di `Mahasiswa.php` untuk definisi kelas, dan kode di `index.php` untuk
-                 cara menggunakannya.)</em>
-         </p>
+    <!--  MODUL 1  -->
+    <div class="container">
+        <h1>Modul 1: Konsep Dasar OOP (Class & Object)</h1>
 
-     </div>
+        <h2>Objek Pertama: <?php echo $m1_obj1->nama; ?></h2>
+        <div class="output">
+            <?php $m1_obj1->sayHello(); ?>
+        </div>
 
- </body>
+        <h2>Objek Kedua: <?php echo $m1_obj2->nama; ?></h2>
+        <div class="output">
+            <?php $m1_obj2->sayHello(); ?>
+        </div>
+    </div>
 
- </html>
+    <!--  MODUL 2  -->
+    <div class="container">
+        <h1>Modul 2: Konstruktor, Destruktor, dan $this</h1>
+
+        <h2>Objek Pertama: <?php echo $m2_obj1->nama; ?></h2>
+        <div class="output">
+            <?php $m2_obj1->sayHello(); ?>
+        </div>
+
+        <h2>Objek Kedua: <?php echo $m2_obj2->nama; ?></h2>
+        <div class="output">
+            <?php $m2_obj2->sayHello(); ?>
+        </div>
+    </div>
+
+</body>
+
+</html>
