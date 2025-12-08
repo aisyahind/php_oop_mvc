@@ -55,13 +55,13 @@ class App
     public function parseURL()
     {
         if (isset($_GET['url'])) {
-            // Hilangkan karakter "/" di akhir URL
+            // Hilangkan karakter '/' di akhir URL
             $url = rtrim($_GET['url'], '/');
 
             // bersihkan URL dari karakter yang tidak diinginkan
             $url = filter_var($url, FILTER_SANITIZE_URL);
 
-            // Pecah string URL berdasarkan "/" menjadi array
+            // Pecah string URL berdasarkan '/' menjadi array
             $url = explode('/', $url);
 
             // Konversi elemen pertama ke Huruf Besar Awal (Controller name convention)
